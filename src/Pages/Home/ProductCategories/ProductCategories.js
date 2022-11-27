@@ -2,6 +2,7 @@ import React from 'react';
 import lenovo from '../../../image/lenova-laptop-500x500.jpg';
 import dell from '../../../image/dell-laptop-1000x1000.webp';
 import asus from '../../../image/asus-laptop-15-x509jb-10th-.jpg';
+import { Link } from 'react-router-dom';
 
 const ProductCategories = () => {
     const categories = [
@@ -15,7 +16,9 @@ const ProductCategories = () => {
              <div className=' m-12 flex justify-center items-center shadow-xl'>
             
             {
-                categories.map(category =><div>
+                categories.map(category =><div
+                key={category.id}
+                >
                     
                     <div className="card w-96 m-4 bg-primary text-primary-content">
                     <figure><img src={category.img} alt="Shoes" /></figure>
@@ -23,7 +26,7 @@ const ProductCategories = () => {
             <h2 className="card-title">{category.name}</h2>
             <p>{category.description}</p>
             <div className="card-actions justify-center">
-              <button className="btn">Buy Now</button>
+              <Link to ='/'><button className="btn">Buy Now</button></Link>
             </div>
           </div>
         </div>

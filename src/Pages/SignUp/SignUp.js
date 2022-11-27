@@ -3,13 +3,18 @@ import { AuthContext } from '../../Context/AuthProvider';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../API/setAuthToken';
+
+// import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { createUser, updateUser } = useContext(AuthContext);
+    const { createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
     const [createdUserEmail, setCreatedUserEmail] = useState('')
+
+  
     
     // const [token] = useToken(createdUserEmail);
     const navigate = useNavigate();
@@ -19,10 +24,12 @@ const SignUp = () => {
     // }
 
     const handleSignUp = (data) => {
+        console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                setAuthToken(result.user)
                 console.log(user);
                 toast('User Created Successfully.')
                 const userInfo = {
@@ -31,7 +38,7 @@ const SignUp = () => {
                 updateUser(userInfo)
                     .then(() => {
                         console.log(data.name, data.email);
-                        // saveUser(data.name, data.email);
+                        saveUser(data.name, data.email);
                     })
                     .catch(err => console.log(err));
             })
@@ -40,21 +47,30 @@ const SignUp = () => {
                 setSignUPError(error.message)
             });
     }
+   
+const handleGoogleSignIn =() =>{
+   signInWithGoogle().then(result => {
+    
+    console.log(result.user)
+    setAuthToken(result.user)
+});
+}
+  
 
-    // const saveUser = (name, email) =>{
-    //     const user ={name, email};
-    //     fetch('https://doctors-portal-server-rust.vercel.app/users', {
-    //         method: 'POST',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(user)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //         setCreatedUserEmail(email);
-    //     })
-    // }
+    const saveUser = (name, email) =>{
+        const user ={name, email};
+        fetch('http://localhost:5000/users', {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            setCreatedUserEmail(email);
+        })
+    }
     return (
         <div className='h-[800px] flex justify-center items-center'>
         <div className='w-96 p-7'>
@@ -74,6 +90,16 @@ const SignUp = () => {
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                 </div>
+                        {/* image  */}
+                        <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Select Image</span></label>
+                    <input type="file" {...register("file", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.file.message}</p>}
+                </div>
+
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Password</span></label>
                     <input type="password" {...register("password", {
@@ -88,7 +114,8 @@ const SignUp = () => {
             </form>
             <p>Already have an account <Link className='text-secondary' to="/login">Please Login</Link></p>
             <div className="divider">OR</div>
-            <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+
+            <button  className='btn btn-outline w-full' onClick={handleGoogleSignIn}>CONTINUE WITH GOOGLE</button>
 
         </div>
     </div>

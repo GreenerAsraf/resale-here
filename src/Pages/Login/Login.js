@@ -1,21 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../API/setAuthToken';
 import { AuthContext } from '../../Context/AuthProvider';
 // import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn,signInWithGoogle,loading,setLoading } = useContext(AuthContext);
+    const [userEmail, setUserEmail] = useState('')
+
+
     
     const [loginError, setLoginError] = useState('');
-    const [loginUserEmail, setLoginUserEmail] = useState('');
-    // const [token] = useToken(loginUserEmail);
+    // const [loginUserEmail, setLoginUserEmail] = useState('');
+    // const [token] = setAuthToken(loginUserEmail);
     const location = useLocation();
     const navigate = useNavigate();
+  
 
     const from = location.state?.from?.pathname || '/';
+
     // if (token) {
     //     navigate(from, { replace: true });
     // }
@@ -23,16 +29,50 @@ const Login = () => {
         console.log(data);
         setLoginError('');
         signIn(data.email, data.password)
-            .then(result => {
+            .then(result =>{
                 const user = result.user;
-                console.log(user);
-                setLoginUserEmail(data.email);
+                console.log(user.email);
+                const currentUser ={
+                    email: user.email
+                }
+                console.log(currentUser);
+                // setAuthToken(result.user)
+
+                fetch(`http://localhost:5000/user/${user?.email}`,{
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+
+                })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    localStorage.setItem('token',data.token)
+                })
+
+
+
+                setUserEmail(data.email);
+                setAuthToken(result.user)
+                navigate(from, { replace: true });
             })
             .catch(error => {
                 console.log(error.message)
                 setLoginError(error.message);
+                setLoading(false)
             });
     }
+    
+
+    const handleGoogleSignin = () => {
+        signInWithGoogle().then(result => {
+          console.log(result.user)
+          setAuthToken(result.user)
+          navigate(from, { replace: true })
+        })
+      }
 
     return (
         <div className='h-[800px] flex justify-center items-center'>
@@ -66,7 +106,7 @@ const Login = () => {
                 </form>
                 <p>New to Doctors Portal <Link className='text-secondary' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>CONTINUE WITH GOOGLE</button>
+                <button onClick={handleGoogleSignin} className='btn btn-outline w-full'>{userEmail}CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );
