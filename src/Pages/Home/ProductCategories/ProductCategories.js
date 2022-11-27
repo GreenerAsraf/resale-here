@@ -26,11 +26,12 @@ const ProductCategories = () => {
             <h2 className="card-title">{category.name}</h2>
             <p>{category.description}</p>
             <div className="card-actions justify-center">
-              <Link to ='/'><button className="btn">Buy Now</button></Link>
+              <Link to ={`/category/${category.id}`}><button className="btn">Buy Now</button></Link>
             </div>
           </div>
         </div>
                     </div>
+                    //  <Link to={`/checkout/${_id}`}></Link>
 
                 )
             }

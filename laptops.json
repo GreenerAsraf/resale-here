@@ -1,0 +1,138 @@
+[
+   {
+    "Brand":"Asus",
+    "Details": [
+        {
+            "Model": "Asus Vivobook Go 14 E410MA Celeron N4020 14 FHD Laptop",
+            "image":" https://ibb.co/L9syTPm",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Asus VivoBook 14 X415FA Core i3 10th Gen 256GB SSD 14",
+            "image":"https://ibb.co/g3pfz5k",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "ASUS VivoBook 15 X515EA Core i3 11th Gen 15.6",
+            "image":"https://ibb.co/cvCz1Hc",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Asus VivoBook 15 R565FA Core i3 10th Gen 15.6",
+            "image":"https://ibb.co/Jm9HNXW",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        }
+    ]
+   },
+   {
+    "Brand":"DELL",
+    "Details":[
+        {
+            "Model": "Dell Vostro 15 3510 Core i5 11th Gen MX350 2GB Graphics",
+            "image":" https://ibb.co/L9syTPm",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Dell Inspiron 15 5515 AMD Ryzen 7 5700U 15.6",
+            "image":"https://ibb.co/g3pfz5k",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Dell Inspiron 15 3511 Core i7 11th Gen 512GB SSD MX350 2GB Graphics 15.6",
+            "image":"https://ibb.co/cvCz1Hc",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Dell Latitude 14 3420 Core i7 11th Gen 14",
+            "image":"https://ibb.co/Jm9HNXW",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        }
+    ]
+   },
+   {
+    "Brand":"Lenovo",
+    "Details":[
+        {
+            "Model": "Lenovo IdeaPad Slim 3i Core i3 10th Gen 15.6",
+            "image":" https://ibb.co/L9syTPm",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Lenovo K14 Core i3 11th Gen 14",
+            "image":"https://ibb.co/g3pfz5k",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Lenovo IdeaPad 3 Ryzen 5 5500U 14",
+            "image":"https://ibb.co/cvCz1Hc",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        },
+        {
+            "Model": "Lenovo IdeaPad Slim 3i 11th Gen Core i5 15.6",
+            "image":"https://ibb.co/Jm9HNXW",
+            "resale-price": 214,
+            "original-price": 332,
+            "location": "Chittagong",
+            "Usage Time": "18 months",
+            "Seller's Name": "Akash Chy"
+    
+        }
+    ]
+   }
+   
+]
