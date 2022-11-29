@@ -1,11 +1,13 @@
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Blog from "../../Pages/Blog/Blog";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import ProductCategories from "../../Pages/Home/ProductCategories/ProductCategories";
 import Laptops from "../../Pages/Laptops/Laptops";
 import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -57,7 +59,15 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
-            }
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/allusers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+            },
         ]
     }
 ])
