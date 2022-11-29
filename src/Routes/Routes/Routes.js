@@ -1,8 +1,12 @@
+import DashboardLayout from "../../Layout/DashboardLayout";
 import Blog from "../../Pages/Blog/Blog";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
+import ProductCategories from "../../Pages/Home/ProductCategories/ProductCategories";
 import Laptops from "../../Pages/Laptops/Laptops";
 import Login from "../../Pages/Login/Login";
 import ErrorPage from "../../Pages/Shared/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -34,9 +38,26 @@ export const router = createBrowserRouter([
                 element: <Blog></Blog>
             },
             {
+                path: '/categories',
+                loader: async ()=>{
+                    return fetch('http://localhost:5000/laptops');
+                } ,
+                element: <ProductCategories></ProductCategories>
+            },
+            {
                 path: '/category/:id',
                 element: <Laptops></Laptops>
             },
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
+        children: [
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
+            }
         ]
     }
 ])

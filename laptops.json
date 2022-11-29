@@ -1,25 +1,25 @@
 [
    {
-    "Brand":"Asus",
+    "Brand":"Asus", "description": "Used Asus Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty" ,
     "Details": [
         {
             "Model": "Asus Vivobook Go 14 E410MA Celeron N4020 14 FHD Laptop",
             "image":" https://ibb.co/L9syTPm",
-            "resale-price": 214,
-            "original-price": 332,
-            "location": "Chittagong",
+            "resale-price": 234,
+            "original-price": 342,
+            "location": "Dhaka",
             "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Seller's Name": "Asraf Chy"
     
         },
         {
             "Model": "Asus VivoBook 14 X415FA Core i3 10th Gen 256GB SSD 14",
             "image":"https://ibb.co/g3pfz5k",
-            "resale-price": 214,
+            "resale-price": 234,
             "original-price": 332,
-            "location": "Chittagong",
-            "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "location": "Barishal",
+            "Usage Time": "14 months",
+            "Seller's Name": "Mezbah Chy"
     
         },
         {
@@ -37,19 +37,19 @@
             "image":"https://ibb.co/Jm9HNXW",
             "resale-price": 214,
             "original-price": 332,
-            "location": "Chittagong",
+            "location": "Khulna",
             "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Seller's Name": "monisha Chy"
     
         }
     ]
    },
    {
-    "Brand":"DELL",
+    "Brand":"DELL","description": "Used Dell Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty",
     "Details":[
         {
             "Model": "Dell Vostro 15 3510 Core i5 11th Gen MX350 2GB Graphics",
-            "image":" https://ibb.co/L9syTPm",
+            "image":" https://ibb.co/nb2b19N",
             "resale-price": 214,
             "original-price": 332,
             "location": "Chittagong",
@@ -59,19 +59,19 @@
         },
         {
             "Model": "Dell Inspiron 15 5515 AMD Ryzen 7 5700U 15.6",
-            "image":"https://ibb.co/g3pfz5k",
-            "resale-price": 214,
-            "original-price": 332,
+            "image":"https://ibb.co/F5HdfwL",
+            "resale-price": 234,
+            "original-price": 402,
             "location": "Chittagong",
-            "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Usage Time": "24 months",
+            "Seller's Name": "Monir hossen"
     
         },
         {
             "Model": "Dell Inspiron 15 3511 Core i7 11th Gen 512GB SSD MX350 2GB Graphics 15.6",
-            "image":"https://ibb.co/cvCz1Hc",
-            "resale-price": 214,
-            "original-price": 332,
+            "image":"https://ibb.co/fCSCT3D",
+            "resale-price": 221,
+            "original-price": 292,
             "location": "Chittagong",
             "Usage Time": "18 months",
             "Seller's Name": "Akash Chy"
@@ -79,34 +79,34 @@
         },
         {
             "Model": "Dell Latitude 14 3420 Core i7 11th Gen 14",
-            "image":"https://ibb.co/Jm9HNXW",
-            "resale-price": 214,
-            "original-price": 332,
-            "location": "Chittagong",
+            "image":" https://ibb.co/qMn1RF9",
+            "resale-price": 314,
+            "original-price": 432,
+            "location": "Dhaka",
             "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Seller's Name": "Saima Chy"
     
         }
     ]
    },
    {
-    "Brand":"Lenovo",
+    "Brand":"Lenovo","description": "Used Lenovo Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty",
     "Details":[
         {
             "Model": "Lenovo IdeaPad Slim 3i Core i3 10th Gen 15.6",
-            "image":" https://ibb.co/L9syTPm",
-            "resale-price": 214,
+            "image":" https://ibb.co/G9dv28Q",
+            "resale-price": 254,
             "original-price": 332,
-            "location": "Chittagong",
+            "location": "Dhaka",
             "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Seller's Name": "Mahbub Hridoy"
     
         },
         {
             "Model": "Lenovo K14 Core i3 11th Gen 14",
-            "image":"https://ibb.co/g3pfz5k",
-            "resale-price": 214,
-            "original-price": 332,
+            "image":"https://ibb.co/ZgTwB2N",
+            "resale-price": 200,
+            "original-price": 335,
             "location": "Chittagong",
             "Usage Time": "18 months",
             "Seller's Name": "Akash Chy"
@@ -114,24 +114,25 @@
         },
         {
             "Model": "Lenovo IdeaPad 3 Ryzen 5 5500U 14",
-            "image":"https://ibb.co/cvCz1Hc",
-            "resale-price": 214,
+            "image":"https://ibb.co/PD34F4q",
+            "resale-price": 249,
             "original-price": 332,
             "location": "Chittagong",
-            "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Usage Time": "11 months",
+            "Seller's Name": "rita Rai"
     
         },
         {
             "Model": "Lenovo IdeaPad Slim 3i 11th Gen Core i5 15.6",
-            "image":"https://ibb.co/Jm9HNXW",
+            "image":"https://ibb.co/563KVBw",
             "resale-price": 214,
             "original-price": 332,
             "location": "Chittagong",
-            "Usage Time": "18 months",
-            "Seller's Name": "Akash Chy"
+            "Usage Time": "12 months",
+            "Seller's Name": "Habib Chy"
     
         }
+
     ]
    }
    
