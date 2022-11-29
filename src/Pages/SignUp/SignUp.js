@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { setAuthToken } from '../../API/setAuthToken';
+import useToken from '../../Hooks/useToken';
 
 // import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
@@ -12,24 +13,48 @@ const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser,signInWithGoogle } = useContext(AuthContext);
     const [signUpError, setSignUPError] = useState('');
-    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
 
   
     
-    // const [token] = useToken(createdUserEmail);
+
     const navigate = useNavigate();
 
-    // if(token){
-    //     navigate('/');
+    if(token){
+        navigate('/');
+    }
+
+    // const handleSignUp = (data) => {
+    //     console.log(data);
+    //     setSignUPError('');
+    //     createUser(data.email, data.password)
+    //         .then(result => {
+    //             const user = result.user;
+    //             setAuthToken(result.user)
+    //             console.log(user);
+    //             toast('User Created Successfully.')
+    //             const userInfo = {
+    //                 displayName: data.name
+    //             }
+    //             updateUser(userInfo)
+    //                 .then(() => {
+    //                     console.log(data.name, data.email);
+    //                     saveUser(data.name, data.email);
+    //                 })
+    //                 .catch(err => console.log(err));
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //             setSignUPError(error.message)
+    //         });
     // }
 
     const handleSignUp = (data) => {
-        console.log(data);
         setSignUPError('');
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                setAuthToken(result.user)
                 console.log(user);
                 toast('User Created Successfully.')
                 const userInfo = {
@@ -37,8 +62,7 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        console.log(data.name, data.email);
-                        saveUser(data.name, data.email);
+                        saveUser(data.name, data.email,data.role);
                     })
                     .catch(err => console.log(err));
             })
@@ -47,6 +71,8 @@ const SignUp = () => {
                 setSignUPError(error.message)
             });
     }
+
+
    
 const handleGoogleSignIn =() =>{
    signInWithGoogle().then(result => {
@@ -76,6 +102,7 @@ const handleGoogleSignIn =() =>{
         <div className='w-96 p-7'>
             <h2 className='text-xl text-center'>Sign Up</h2>
             <form onSubmit={handleSubmit(handleSignUp)}>
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Name</span></label>
                     <input type="text" {...register("name", {
@@ -83,6 +110,7 @@ const handleGoogleSignIn =() =>{
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
                 </div>
+
                 <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Email</span></label>
                     <input type="email" {...register("email", {
@@ -90,14 +118,28 @@ const handleGoogleSignIn =() =>{
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
                 </div>
+                <div className="form-control w-full max-w-xs">
+                    <label className="label"> <span className="label-text">Write Your Role</span></label>
+                    <input type="role" {...register("role", {
+                        required: true
+                    })} className="input input-bordered w-full max-w-xs" />
+                    {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+                </div>
+
                         {/* image  */}
-                        <div className="form-control w-full max-w-xs">
+                        {/* <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Select Image</span></label>
                     <input type="file" {...register("file", {
                         required: true
                     })} className="input input-bordered w-full max-w-xs" />
                     {errors.email && <p className='text-red-500'>{errors.file.message}</p>}
-                </div>
+                </div> */}<label className="label"> <span className="label-text">Select Your Role</span></label>
+                       <div className="form-control w-full max-w-xs input input-bordered">
+                       <select {...register("role")}> 
+                            <option value="seller">Seller</option>
+                            <option value="buyer">Buyer</option>
+                         </select>
+                       </div>
 
 
                 <div className="form-control w-full max-w-xs">
