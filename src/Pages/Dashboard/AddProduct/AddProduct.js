@@ -6,7 +6,10 @@ import { useNavigate } from 'react-router-dom';
 const AddProduct = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
-    const imageHostKey = process.env.REACT_APP_imgbb_key;
+    // const imageHostKey ='733ccff8b2166f98b7716e88c8d0bc09';
+    const imageHostKey =process.env.REACT_APP_IMGBB_KEY;
+
+    console.log(imageHostKey);
 
     const handleAddProduct = data => {
         console.log(data);
@@ -78,17 +81,10 @@ const AddProduct = () => {
                     </option>
                     <option value="buyer">
                         Buyer
-                    </option>
-                    {/* {
-                        specialties.map(specialty => <option
-                            key={specialty._id}
-                            value={specialty.name}
-                        >{specialty.name}</option>)
-                    } */}
-                    
-                    
+                    </option>  
                 </select>
             </div>
+
             <div className="form-control w-full max-w-xs">
                 <label className="label"> <span className="label-text">Photo</span></label>
                 <input type="file" {...register("image", {
