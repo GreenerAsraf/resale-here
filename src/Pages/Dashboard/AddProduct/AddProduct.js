@@ -9,7 +9,7 @@ const AddProduct = () => {
     // const imageHostKey ='733ccff8b2166f98b7716e88c8d0bc09';
     const imageHostKey =process.env.REACT_APP_IMGBB_KEY;
 
-    console.log(imageHostKey);
+    // console.log(imageHostKey);
 
     const handleAddProduct = data => {
         console.log(data);
@@ -30,8 +30,17 @@ const AddProduct = () => {
                 const product = {
                     name: data.name, 
                     email: data.email,
-                    // specialty: data.specialty,
-                    image: imgData.data.url
+                    image: imgData.data.url,
+                    price:data.price,
+                    condition: data.codition,
+                    location:data.location,
+                    phone: data.phone,
+                    description: data.description,
+                    purchase: data.purchase
+
+
+                    
+
                 }
 
                 // save doctor information to the database
@@ -47,22 +56,45 @@ const AddProduct = () => {
                 .then(result =>{
                     console.log(result);
                     toast.success(`${data.name} is added successfully`);
-                    navigate('/dashboard/myproducts')
+                    // navigate('/dashboard/myproducts')
                 })
             }
         })
         
     }
     return (
-        <div className='w-96 p-7'>
+        <div className='w-full p-7'>
         <h2 className="text-4xl">Add A Product</h2>
-        <form onSubmit={handleSubmit(handleAddProduct)}>
+        <form className='grid grid-cols-2 gap-6 w-full bg-slate-200  p-12' onSubmit={handleSubmit(handleAddProduct)}>
             <div className="form-control w-full max-w-xs">
-                <label className="label"> <span className="label-text">Name</span></label>
+                <label className="label"> <span className="label-text">Product Name</span></label>
                 <input type="text" {...register("name", {
                     required: "Name is Required"
                 })} className="input input-bordered w-full max-w-xs" />
                 {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label"> <span className="label-text">Product Price</span></label>
+                <input type="text" {...register("price", {
+                    required: "Price is Required"
+                })} className="input input-bordered w-full max-w-xs" />
+                {errors.price && <p className='text-red-500'>{errors.price.message}</p>}
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label"> <span className="label-text">Your Location</span></label>
+                <input type="text" {...register("location", {
+                    required: "Location is Required",
+                   
+                })}  placeholder ="Chittagong" className="input input-bordered w-full max-w-xs" />
+                {errors.price && <p className='text-red-500'>{errors.price.message}</p>}
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label"> <span className="label-text">Mobile Number</span></label>
+                <input type="tel" {...register("phone", {
+                    required: "Phone is Required",
+                    placeholder:"Write your mobile number"
+                })} className="input input-bordered w-full max-w-xs" />
+                {errors.phone && <p className='text-red-500'>{errors.phone.message}</p>}
             </div>
             <div className="form-control w-full max-w-xs">
                 <label className="label"> <span className="label-text">Email</span></label>
@@ -72,15 +104,33 @@ const AddProduct = () => {
                 {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
             </div>
             <div className="form-control w-full max-w-xs">
+                <label className="label"> <span className="label-text">Year of purchase</span></label>
+                <input type="date" {...register("purchase", {
+                    required: true
+                })} className="input input-bordered w-full max-w-xs" />
+                {errors.purchase && <p className='text-red-500'>{errors.purchase.message}</p>}
+            </div>
+            <div className="form-control w-full max-w-xs">
+                <label className="label"> <span className="label-text">description</span></label>
+                <input type="text" {...register("description", {
+                    required: true
+                })} placeholder ='Write about the product' className="input input-bordered w-full max-w-xs" />
+                {errors.description && <p className='text-red-500'>{errors.description.message}</p>}
+            </div>
+
+            <div className="form-control w-full max-w-xs">
                 <label className="label"> <span className="label-text">Product's Condition</span></label>
                 <select 
-                {...register('role')}
+                {...register('codition')}
                 className="select input-bordered w-full max-w-xs">
-                    <option value="seller">
-                        Seller
+                    <option value="good">
+                        Good
                     </option>
-                    <option value="buyer">
-                        Buyer
+                    <option value="excellent">
+                    Excellent
+                    </option>  
+                    <option value="fair">
+                        Fair
                     </option>  
                 </select>
             </div>
@@ -92,7 +142,8 @@ const AddProduct = () => {
                 })} className="input input-bordered w-full max-w-xs" />
                 {errors.img && <p className='text-red-500'>{errors.img.message}</p>}
             </div>
-            <input className='btn btn-accent w-full mt-4' value="Add Doctor" type="submit" />
+            <br />
+            <input className='btn btn-accent w-full mt-4' value="Add Product" type="submit" />
         </form>
     </div>
     );
