@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const Laptops = ({laptop}) => {
 
-    const {_id, Brand,description} = laptop;
+    const {id, Brand,description,img} = laptop;
     // const [Details] = laptop;
     console.log(laptop);
 
@@ -22,7 +22,8 @@ const Laptops = ({laptop}) => {
 
     return (
         <div>
-            <div className="card w-96 bg-primary text-primary-content">
+            <div className="card w-96 bg-primary text-primary-content m-12">
+            <figure><img src={img} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{Brand}</h2>
     <p>{description}</p>

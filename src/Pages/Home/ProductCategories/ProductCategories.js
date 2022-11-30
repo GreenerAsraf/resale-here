@@ -6,22 +6,22 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Laptops from '../../Laptops/Laptops';
 
 const ProductCategories = () => {
-  const category = useLoaderData();
+  // const category = useLoaderData();
 
-  console.log(category);
-//     const categories = [
-//         { id: '01', Brand:"Lenovo",img:lenovo, description: "Used Lenovo Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty"},
-//         { id: '02',Brand:"Asus", img: asus ,description: "Used Asus Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty"},
-//         { id: '03',Brand:"Dell",img:dell, description: "Used Dell Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty"},
-// ]
+  // console.log(category);
+    const categories = [
+        { id: '01', Brand:"Lenovo",img:lenovo, description: "Used Lenovo Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty"},
+        { id: '02',Brand:"Asus", img: asus ,description: "Used Asus Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty"},
+        { id: '03',Brand:"Dell",img:dell, description: "Used Dell Laptop will give you budget friendly Laptop with Quality Product. This product is QC Pass means you will have 30 days replacement warranty"},
+]
     return (
        <div>
             <p  className='text-3xl text-secodary text-center'>We offer in these Three Categories</p>
-             <div className=' m-12 flex justify-center items-center shadow-xl'>
+             <div className=' m-12 flex justify-center items-center shadow-xl '>
               
         {  
-              category.map(laptop => <Laptops
-              key = {category._id}
+              categories.map(laptop => <Laptops
+              key = {categories.id}
               laptop ={laptop}>
               </Laptops>
               

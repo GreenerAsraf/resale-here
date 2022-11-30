@@ -6,6 +6,7 @@ import Dashboard from "../../Pages/Dashboard/Dashboard";
 import ProductCategories from "../../Pages/Home/ProductCategories/ProductCategories";
 import Laptops from "../../Pages/Laptops/Laptops";
 import Login from "../../Pages/Login/Login";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 import ErrorPage from "../../Pages/Shared/ErrorPage";
 import SignUp from "../../Pages/SignUp/SignUp";
 import AdminRoute from "../AdminRoute/AdminRoute";
@@ -39,6 +40,14 @@ export const router = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/products',
+                loader: async ()=>{
+                    return fetch(' http://localhost:5000/products');
+                } ,
+               
+                element: <MyProducts></MyProducts>
             },
             {
                 path: '/categories',
