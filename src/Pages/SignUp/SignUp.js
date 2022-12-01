@@ -76,14 +76,14 @@ const handleGoogleSignIn =() =>{
    signInWithGoogle().then(result => {
     
     console.log(result.user)
-    setAuthToken(result.user)
+    // setAuthToken(result.user)
 });
 }
   
 
     const saveUser = (name, email) =>{
         const user ={name, email};
-        fetch('http://localhost:5000/users', {
+        fetch('https://resale-here-server.vercel.app/users', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -102,21 +102,20 @@ const handleGoogleSignIn =() =>{
             <form onSubmit={handleSubmit(handleSignUp)}>
 
                 <div className="form-control w-full max-w-xs">
-                  
-
                     <label className="label"> <span className="label-text">Role</span></label>
-                    
-                    <select {...register("role")}>
-                        <option value="female">Seller</option>
-                        <option value="male">Buyer</option>
-                        
+                    <select {...register("role",{
+                         required: "role is Required"
+                    })}
+                    className="input input-bordered w-full max-w-xs"
+                    >
+                        <option value="seller">Seller</option>
+                        <option value="buyer">Buyer</option>   
                     </select>
-                  
-                    {errors.name && <p className='text-red-500'>{errors.name.message}</p>}
+                    {errors.role && <p className='text-red-500'>{errors.role.message}</p>}
                 </div>
-                <div className="form-control w-full max-w-xs">
-                  
+                
 
+                <div className="form-control w-full max-w-xs">
                     <label className="label"> <span className="label-text">Name</span></label>
                     <input type="text" {...register("name", {
                         required: "Name is Required"

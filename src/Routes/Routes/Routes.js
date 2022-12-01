@@ -3,6 +3,7 @@ import Blog from "../../Pages/Blog/Blog";
 import AddProduct from "../../Pages/Dashboard/AddProduct/AddProduct";
 import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
+import ManageSellers from "../../Pages/Dashboard/ManageSellers/ManageSellers";
 import ProductCategories from "../../Pages/Home/ProductCategories/ProductCategories";
 import Laptops from "../../Pages/Laptops/Laptops";
 import Login from "../../Pages/Login/Login";
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
             {
                 path: '/products',
                 loader: async ()=>{
-                    return fetch(' http://localhost:5000/products');
+                    return fetch(' https://resale-here-server.vercel.app/products');
                 } ,
                
                 element: <MyProducts></MyProducts>
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
             {
                 path: '/categories',
                 loader: async ()=>{
-                    return fetch('http://localhost:5000/laptops');
+                    return fetch('https://resale-here-server.vercel.app/laptops');
                 } ,
                 element: <ProductCategories></ProductCategories>
             },
@@ -82,6 +83,10 @@ export const router = createBrowserRouter([
                 path: '/dashboard/allusers',
                 element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
+            {
+                path: '/dashboard/managesellers',
+                element: <AdminRoute><ManageSellers></ManageSellers></AdminRoute>
+            },
         ]
     }
 ])
@@ -90,29 +95,3 @@ export const router = createBrowserRouter([
 
 
 
-
-
-// const router = createBrowserRouter([
-//     {
-//         path: '/',
-//         element: <Main></Main>, 
-//         errorElement: <DisplayError></DisplayError>,
-//         children: [
-//             {
-//                 path: '/',
-//                 element: <Home></Home>
-//             },
-//             {
-//                 path: '/login',
-//                 element: <Login></Login>
-//             },
-//             {
-//                 path: '/signup',
-//                 element: <SignUp></SignUp>
-//             },
-//             {
-//                 path: '/appointment',
-//                 element: <Appointment></Appointment>
-//             }
-//         ]
-//     },

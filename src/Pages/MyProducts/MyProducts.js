@@ -3,24 +3,33 @@ import { useLoaderData } from 'react-router-dom';
 
 const MyProducts = () => {
     const products = useLoaderData();
+    console.log(products);
     
     return (
-        <div>
-            <h1>All Laptops {products.length}</h1>
-            <div className="card w-96 bg-base-100 shadow-xl">
-  <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
+        <div className='grid grid-cols-3 mt-6'>
+            
+            {
+                products.map(product =><div
+                key={product._id}
+                >
+
+              
+            <div className="card w-full bg-base-100 shadow-xl">
+  <figure><img src={product.image} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">
-      Shoes!
-      <div className="badge badge-secondary">NEW</div>
+   {product.name}
+      <div className="badge badge-secondary">$ {product.price}</div>
     </h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
+    <p>{product.description}</p>
     <div className="card-actions justify-end">
-      <div className="badge badge-outline">Fashion</div> 
-      <div className="badge badge-outline">Products</div>
+      <div className="badge badge-outline">Location: {product.location}</div> 
+      <div className="badge badge-outline"></div>
     </div>
+    <input className='btn btn-accent w-full mt-4' value="Buy Now" type="submit" />
   </div>
 </div>
+</div>) }
         </div>
     );
 };

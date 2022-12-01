@@ -1,25 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Laptops = ({laptop}) => {
 
     const {id, Brand,description,img} = laptop;
     // const [Details] = laptop;
-    console.log(laptop);
-
-    // console.log(_id, Brand,description);
-    // const [laptops , setLaptops] = useState([]);
-
-    // const {data : todos = [] }  = useQuery({
-    //     querykey: ["todos"],
-    //     queryFn: async()=>{
-    //         const res = await fetch(`https://jsonplaceholder.typicode.com/todos`);
-    //         // const res = await fetch('laptops.json');
-    //         const data = await res.json();
-    //         return data;
-    //     }
-    // })
-
     return (
         <div>
             <div className="card w-96 bg-primary text-primary-content m-12">
@@ -28,7 +14,7 @@ const Laptops = ({laptop}) => {
     <h2 className="card-title">{Brand}</h2>
     <p>{description}</p>
     <div className="card-actions justify-center">
-      <button className="btn">Buy Now</button>
+      <button className="btn"><Link to='products'>Click to Buy</Link></button>
     </div>
   </div>
 </div>

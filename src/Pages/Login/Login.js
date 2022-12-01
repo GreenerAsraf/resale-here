@@ -43,7 +43,7 @@ const Login = () => {
                 console.log(currentUser);
                 // setAuthToken(result.user)
 
-                fetch(`http://localhost:5000/user/${user?.email}`,{
+                fetch(`https://resale-here-server.vercel.app/user/${user?.email}`,{
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'
