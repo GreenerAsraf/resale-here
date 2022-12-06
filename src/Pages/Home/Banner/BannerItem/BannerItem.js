@@ -10,15 +10,13 @@ const BannerItem = ({slide}) => {
             <img src={image} alt="" className="w-full rounded-xl" />
         </div>
         <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-1/4">
-            <h1 className='text-6xl font-bold text-white'>
+            <h1 className='lg:text-6xl sm:text-sm font-bold text-white'>
                Resale Your Laptop<br />
                 Buy Desired Quality laptop <br />
                 with affordable price
             </h1>
         </div>
-        <div className="absolute flex justify-end transform -translate-y-1/2 w-2/5 left-24 top-1/2">
-            <p className='text-xl text-white'>There are many variations of passages of  available, but the majority have suffered alteration in some form</p>
-        </div>
+        
         <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
             <button className="btn btn-warning mr-5">  <Link to = 'products'>Learn More</Link></button>
             <button className="btn btn-outline btn-warning">

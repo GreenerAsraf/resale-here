@@ -43,7 +43,7 @@ const AddProduct = () => {
 
                 }
 
-                // save doctor information to the database
+                // save information to the database
                 fetch('https://resale-here-server.vercel.app/products', {
                     method: 'POST',
                     headers: {

@@ -81,8 +81,8 @@ const handleGoogleSignIn =() =>{
 }
   
 
-    const saveUser = (name, email) =>{
-        const user ={name, email};
+    const saveUser = (name, email,role) =>{
+        const user ={name, email,role};
         fetch('https://resale-here-server.vercel.app/users', {
             method: 'PUT',
             headers: {
